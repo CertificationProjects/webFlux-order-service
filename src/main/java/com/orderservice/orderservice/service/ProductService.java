@@ -23,7 +23,7 @@ public class ProductService {
 
     public Mono<ProductDto> insert(Mono<ProductDto> productDtoMono){
         return productDtoMono.map(EntityDtoUtil::toEntity)
-                .flatMap(productRepository::insert)
+                .flatMap(productRepository::save)
                 .map(EntityDtoUtil::toDto);
     }
 
